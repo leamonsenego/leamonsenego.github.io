@@ -1,0 +1,54 @@
+body{
+  font-family: 'Rubik', sans-serif;
+  background-color: #8AB596;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header{
+margin: 50px 20px 50px 20px;
+  font-size: 40px;
+}
+
+.garden-banner{
+background-image: url("images/garden.jpeg");
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.dog-face{
+  height: 220px;
+  width: 220px;
+  position: absolute;
+  left: 800px;
+  top: 50px;
+}
+
+
+.start-game-button{
+
+}
+
+#start-button{
+  background-color: #F3EEBB;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+  margin: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.game-rules{
+  background-color: #F5F5F5;
+  font-size: 24px;
+  margin: 20px 500px 20px 500px;
+  padding: 10px;
+}
+
