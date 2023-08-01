@@ -28,28 +28,59 @@ class Player{
 
     // Update the player's position on the screen
     this.updatePosition();
+    
+    // Ensure the player stays within the game screen
+    if (this.left < 10) {
+      this.left = 10;
+    }
+    if (this.top < 10) {
+      this.top = 10;
+    }
+    if (this.left > this.gameScreen.offsetWidth - this.width - 10) {
+      this.left = this.gameScreen.offsetWidth - this.width - 10;
+    }
+    if (this.top > this.gameScreen.offsetHeight - this.height - 10) {
+      this.top = this.gameScreen.offsetHeight - this.height - 10;
+    }
   }
 
-  updatePosition() {
-    this.element.style.left = `${this.left}px`;
-    this.element.style.top = `${this.top}px`;
-  }
-
-  didCollide(wasps) {
+  didCollideWasp(wasp) {
     const playerRect = this.element.getBoundingClientRect();
-    const waspsRect = wasps.element.getBoundingClientRect();
+    const waspRect = wasp.element.getBoundingClientRect();
 
     if (
-      playerRect.left < waspsRect.right &&
-      playerRect.right > waspsRect.left &&
-      playerRect.top < waspsRect.bottom &&
-      playerRect.bottom > waspsRect.top
+      playerRect.left < waspRect.right &&
+      playerRect.right > waspRect.left &&
+      playerRect.top < waspRect.bottom &&
+      playerRect.bottom > waspRect.top
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  didCollideTreat(treat){
+    const playerRect = this.element.getBoundingClientRect();
+    const treatRect = treat.element.getBoundingClientRect();
+
+    if (
+      playerRect.left < treatRect.right &&
+      playerRect.right > treatRect.left &&
+      playerRect.top < treatRect.bottom &&
+      playerRect.bottom > treatRect.top
     ) {
       return true;
     } else {
       return false;
     }
 
+  }
+
+
+  updatePosition() {
+    this.element.style.left = `${this.left}px`;
+    this.element.style.top = `${this.top}px`;
   }
 
 }
