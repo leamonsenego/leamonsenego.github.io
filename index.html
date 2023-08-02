@@ -12,7 +12,11 @@
   <title>Mou's big hunt!</title>
 </head>
 <body>
+  
 <div id="game-intro">
+  <audio id="background-audio" autoplay loop controls="false" style="display: none">
+    <source src="/audio/My%20Dog%20Is%20Happy%20-%20Reed%20Mathis.mp3" type="audio/mpeg">
+  </audio>
   <h1 class="header"> MOU'S BIG HUNT !</h1>
   
 <div class="garden-banner">
@@ -42,11 +46,18 @@ div id="game-container">
 </div>
 
 <div id="game-end">
-<h1> Game over </h1>
+  <audio id="game-over-audio" loop style="display: none">
+    <source src="/audio/Game%20Over%20sound%20effect.mp3" type="audio/mpeg">
+  </audio>
+ <h1> Game over </h1>
+  <br/>
+  <button id="restart-button"> Play again ! </button>
 </div>
 
 <script src="script.js"></script>
 <script src="player.js"></script>
+<script src="wasp.js"></script>
+<script src="treat.js"></script>
 <script src="game.js"></script>
 </body>
 </html>
