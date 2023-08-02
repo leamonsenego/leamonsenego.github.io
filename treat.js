@@ -2,10 +2,10 @@ class Treat {
   static treats = []
   constructor(gameScreen){
     this.gameScreen = gameScreen;
-    this.left = Math.floor(Math.random() * 300 + 70);
+    this.left = Math.floor(Math.random() * 1000 + 70);
     this.top = 0;
-    this.width = 100;
-    this.height = 100;
+    this.width = 60;
+    this.height = 60;
     this.element = document.createElement("img");
 
     this.element.src="./images/dogstreats.jpeg";
