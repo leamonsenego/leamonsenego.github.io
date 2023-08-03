@@ -16,6 +16,10 @@ padding: 20px 0px;
   align-items: center;
 }
 
+#game-end {
+  display: none;
+}
+
 #game-screen{
   display: none;
   align-content: center;
