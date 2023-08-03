@@ -8,7 +8,7 @@ class Treat {
     this.height = 60;
     this.element = document.createElement("img");
 
-    this.element.src="./images/dogstreats.jpeg";
+    this.element.src="./images/dogstreats.png";
     this.element.style.position = "absolute";
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.height}px`;
