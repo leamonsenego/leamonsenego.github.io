@@ -103,7 +103,7 @@ class Game {
 
   startTreatCreation() {
     this.treatCreationTimer = setInterval(() => {
-      if (this.treat.length < 8) {
+      if (this.treat.length < 10) {
         this.treat.push(new Treat(this.gameScreen));
       }
     }, this.treatCreationInterval);
@@ -176,7 +176,7 @@ class Game {
     }
 
     // Remove excess treats if the limit is exceeded
-    while (this.treat.length > 8) {
+    while (this.treat.length > 10) {
       // Remove the first (oldest) treat from the array and the DOM
       const removedTreats = this.treat.pop()
       removedTreats.element.remove();
