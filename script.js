@@ -1,9 +1,15 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
+  const restartButton = document.getElementById("restart-button");
+
   let game;
 
   startButton.addEventListener("click", function () {
     startGame();
+  });
+
+   restartButton.addEventListener("click", function () {
+    restartGame();
   });
 
   // Function to start the game
@@ -12,6 +18,11 @@ window.onload = function () {
     game = new Game();
 
     game.start();
+  }
+
+    // The function that reloads the page to start a new game
+  function restartGame() {
+    location.reload();
   }
 
   // Function to handle keydown event
@@ -47,5 +58,4 @@ window.onload = function () {
   }
 
   window.addEventListener("keydown", handleKeydown);
-
 };
