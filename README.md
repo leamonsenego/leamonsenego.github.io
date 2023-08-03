@@ -1,5 +1,7 @@
 # dog-game
 
+https://leamonsenego.github.io/
+
 This is a treat-hunting, wasp-avoiding game inspired by my very own furry baby. The goal is to collect as many treats as possible all the while avoiding the wasps. 
 
 If you get biten by 5 wasps within the timeline, you lose.
