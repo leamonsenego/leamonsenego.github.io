@@ -9,7 +9,7 @@ class Game {
       800,
       160,
       200,
-      "./images/dogface.png",
+      "./images/dogface.png"
     );
     this.height = 1000;
     this.width = 1200;
@@ -20,10 +20,10 @@ class Game {
     this.timerElement = document.getElementById("game-timer");
     this.timer = null;
     this.timeLeft = 3000;
-    
+
     this.treatscore = document.getElementById("treats-score");
     this.waspscore = document.getElementById("wasps-score");
-    
+
     this.treatsCaught = 0;
     this.waspBites = 0;
 
@@ -44,7 +44,7 @@ class Game {
 
     // Stop the background audio in case it was already playing
     this.stopBackgroundAudio();
-    
+
     // To set the game screen's dimensions
     this.gameScreen.style.height = `${this.height}px`;
     this.gameScreen.style.width = `${this.width}px`;
@@ -55,7 +55,7 @@ class Game {
     // Showing the game screen
     this.gameScreen.style.display = "block";
 
-     // Start the audio
+    // Start the audio
     this.playBackgroundAudio();
 
     // Start the timer
@@ -73,9 +73,9 @@ class Game {
     this.gameLoop();
   }
 
-   playBackgroundAudio(){
+  playBackgroundAudio() {
     this.backgroundAudio.play();
-}
+  }
 
   startTimer() {
     let startTime = Date.now();
@@ -98,7 +98,7 @@ class Game {
       if (this.wasp.length < 8) {
         this.wasp.push(new Wasp(this.gameScreen));
       }
-    }, this.waspCreationInterval)
+    }, this.waspCreationInterval);
   }
 
   startTreatCreation() {
@@ -117,13 +117,11 @@ class Game {
 
     this.update();
 
-    window.requestAnimationFrame(() => this.gameLoop())
+    window.requestAnimationFrame(() => this.gameLoop());
   }
 
-
-  update(){
+  update() {
     this.player.move();
-
 
     // Check for collision and if a wasp is still on the screen
     for (let i = 0; i < this.wasp.length; i++) {
@@ -139,11 +137,11 @@ class Game {
         // Update the counter variable to account for the wasp
         this.waspBites++;
         // Add 1 to the wasp score
-        this.waspscore.innerHTML = "Wasp bites: " +  this.waspBites ;
+        this.waspscore.innerHTML = "Wasp bites: " + this.waspBites;
         // If 5 wasp bites, game is over
         if (this.waspBites >= 5 || this.timeLeft <= 0) {
           this.endGame();
-          return // Exist the function to avoid further updates
+          return; // Exist the function to avoid further updates
         }
       }
     }
@@ -162,13 +160,13 @@ class Game {
         // Increment the treat counter
         this.treatsCaught++;
         // Update the treat score
-        this.treatscore.innerHTML = ("Treats caught: " + this.treatsCaught);
+        this.treatscore.innerHTML = "Treats caught: " + this.treatsCaught;
         // Decrement j to account for removed element
         j--;
       }
     }
 
-   // Remove excess wasps if the limit is exceeded
+    // Remove excess wasps if the limit is exceeded
     while (this.wasp.length > 8) {
       // Remove the last (newest) wasp from the array and the DOM
       const removedWasp = this.wasp.pop();
@@ -178,7 +176,7 @@ class Game {
     // Remove excess treats if the limit is exceeded
     while (this.treat.length > 10) {
       // Remove the first (oldest) treat from the array and the DOM
-      const removedTreats = this.treat.pop()
+      const removedTreats = this.treat.pop();
       removedTreats.element.remove();
     }
   }
@@ -188,26 +186,26 @@ class Game {
   }
 
   playGameOverAudio() {
-      // Set the audio to autoplay and loop
-      this.gameOverAudio.autoplay = true;
-      this.gameOverAudio.loop = true;
+    // Set the audio to autoplay and loop
+    this.gameOverAudio.autoplay = true;
+    this.gameOverAudio.loop = true;
 
-      // Play the audio
-      this.gameOverAudio.play();
-    }
+    // Play the audio
+    this.gameOverAudio.play();
+  }
 
-    stopGameOverAudio() {
-      // Pause and reset the audio
-      this.gameOverAudio.pause();
-      this.gameOverAudio.currentTime = 0;
-    }
+  stopGameOverAudio() {
+    // Pause and reset the audio
+    this.gameOverAudio.pause();
+    this.gameOverAudio.currentTime = 0;
+  }
 
   endGame() {
     this.player.element.remove();
     this.wasp.forEach(function (wasp) {
       wasp.element.remove();
     });
-    this.treat.forEach(function(treat) {
+    this.treat.forEach(function (treat) {
       treat.element.remove();
     });
 
@@ -221,7 +219,6 @@ class Game {
     // Play the game over audio
     this.playGameOverAudio();
 
-
     // Clear the timer interval when the game ends
     clearInterval(this.timer);
 
@@ -230,3 +227,4 @@ class Game {
     clearInterval(this.treatCreationTimer);
   }
 }
+
