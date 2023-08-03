@@ -1,14 +1,13 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
-
   let game;
 
   startButton.addEventListener("click", function () {
     startGame();
   });
 
-   restartButton.addEventListener("click", function () {
+  restartButton.addEventListener("click", function () {
     restartGame();
   });
 
@@ -20,20 +19,20 @@ window.onload = function () {
     game.start();
   }
 
-    // The function that reloads the page to start a new game
+  // The function that reloads the page to start a new game
   function restartGame() {
     location.reload();
   }
 
   // Function to handle keydown event
-    function handleKeydown(event) {
-      const key = event.key;
-      const possibleKeystrokes = [
-        "ArrowLeft",
-        "ArrowUp",
-        "ArrowRight",
-        "ArrowDown",
-      ];
+  function handleKeydown(event) {
+    const key = event.key;
+    const possibleKeystrokes = [
+      "ArrowLeft",
+      "ArrowUp",
+      "ArrowRight",
+      "ArrowDown",
+    ];
 
     // Control if the pressed key is in the possibleKeystrokes array
     if (possibleKeystrokes.includes(key)) {
@@ -59,3 +58,4 @@ window.onload = function () {
 
   window.addEventListener("keydown", handleKeydown);
 };
+
