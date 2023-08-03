@@ -38,7 +38,7 @@
   <div id="game-screen">
   <h1 class="header"> MOU'S BIG HUNT !</h1>
     <div class="game-stats">
-    <h4 id="counter"> Time left: </h4>
+    <h4 id="game-timer"> Time left: </h4>
     <h4 id="treats-score"> Treats caught: </h4>
     <h4 id="wasps-score"> Wasps bites: </h4>
     </div>
@@ -47,9 +47,13 @@
 
 <div id="game-end">
   <audio id="game-over-audio" loop style="display: none">
-    <source src="/audio/Game%20Over%20sound%20effect.mp3" type="audio/mpeg">
+    <source src="/audio/Game Over sound effect.mp3" type="audio/mpeg">
   </audio>
- <h1> Game over </h1>
+  <div class="garden-banner">
+   <h1> GAME </h1> 
+  <img src="images/spinningdog2.gif" class="dog-face" alt="spinning dog face"> </img>
+ <h1> OVER </h1>
+ </div>
   <br/>
   <button id="restart-button"> Play again ! </button>
 </div>
