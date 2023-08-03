@@ -59,7 +59,7 @@ background-image: url("images/garden.jpeg");
 }
 
 #start-button,
-#restart-buttonn{
+#restart-button{
   cursor: pointer;
   background-color: #F3EEBB;
   font-size: 24px;
