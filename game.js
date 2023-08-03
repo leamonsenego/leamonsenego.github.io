@@ -16,7 +16,7 @@ class Game {
     this.wasp = [];
     this.treat = [];
 
-    this.timerDuration = 30000;
+    this.timerDuration = 20000;
     this.timerElement = document.getElementById("game-timer");
     this.timer = null;
     this.timeLeft = 3000;
