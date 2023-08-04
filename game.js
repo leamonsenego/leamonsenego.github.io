@@ -6,8 +6,8 @@ class Game {
     this.gameEndScreenWin = document.getElementById("game-end-win");
     this.player = new Player(
       this.gameScreen,
-      500,
-      800,
+      600,
+      1200,
       160,
       200,
       "./images/dogface.png"
