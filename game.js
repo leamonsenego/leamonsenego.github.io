@@ -31,7 +31,7 @@ class Game {
     this.waspCreationInterval = 1000; // Creates a new wasp every 1 second
     this.waspCreationTimer = null;
     this.treatCreationInterval = 1000; // Creates a new treat every 1 second
-    this.treatCreationInterval = null;
+    this.treatCreationTimer = null;
 
     this.backgroundAudio = document.getElementById("background-audio");
     this.gameOverAudio = document.getElementById("game-over-audio");
