@@ -9,7 +9,7 @@ class Wasp {
     this.height = 50;
     this.element = document.createElement("img");
 
-    this.element.src="./images/wasp.png";
+    this.element.src="./images/wasp.svg";
     this.element.style.position = "absolute";
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.height}px`;
