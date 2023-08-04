@@ -8,8 +8,8 @@ class Game {
       this.gameScreen,
       600,
       1200,
+      120,
       160,
-      200,
       "./images/dogface.png"
     );
     this.height = 600;
