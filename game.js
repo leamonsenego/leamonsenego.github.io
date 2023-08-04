@@ -12,7 +12,7 @@ class Game {
       200,
       "./images/dogface.png"
     );
-    this.height = 1000;
+    this.height = 500;
     this.width = 1200;
     this.wasp = [];
     this.treat = [];
