@@ -30,7 +30,10 @@ body {
   animation: slide 5s linear infinite;
 }
 
-#game-end-lose,
+#game-end-lose {
+  display: none;
+}
+
 #game-end-win {
   display: none;
 }
