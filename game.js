@@ -276,4 +276,3 @@ class Game {
     clearInterval(this.treatCreationTimer);
   }
 }
-
