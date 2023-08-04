@@ -2,7 +2,8 @@ class Game {
   constructor() {
     this.startScreen = document.getElementById("game-intro");
     this.gameScreen = document.getElementById("game-screen");
-    this.gameEndScreen = document.getElementById("game-end");
+    this.gameEndScreenLose = document.getElementById("game-end-lose");
+    this.gameEndScreenWin = document.getElementById("game-end-win");
     this.player = new Player(
       this.gameScreen,
       500,
@@ -34,6 +35,7 @@ class Game {
 
     this.backgroundAudio = document.getElementById("background-audio");
     this.gameOverAudio = document.getElementById("game-over-audio");
+    this.winnerAudio = document.getElementById("winner-audio");
 
     this.gameIsOver = false;
   }
@@ -140,7 +142,7 @@ class Game {
         this.waspscore.innerHTML = "Wasp bites: " + this.waspBites;
         // If 5 wasp bites, game is over
         if (this.waspBites >= 5 || this.timeLeft <= 0) {
-          this.endGame();
+          this.endGameLose();
           return; // Exist the function to avoid further updates
         }
       }
@@ -163,6 +165,11 @@ class Game {
         this.treatscore.innerHTML = "Treats caught: " + this.treatsCaught;
         // Decrement j to account for removed element
         j--;
+        // If 8 treats caught, player wins and game is over
+        if (this.treatsCaught >= 8) {
+          this.endGameWin();
+          return; // Exist the function to avoid further updates
+        }
       }
     }
 
@@ -200,7 +207,22 @@ class Game {
     this.gameOverAudio.currentTime = 0;
   }
 
-  endGame() {
+  playWinnerAudio() {
+    // Set the audio to autoplay and loop
+    this.winnerAudio.autoplay = true;
+    this.winnerAudio.loop = true;
+
+    // Play the audio
+    this.winnerAudio.play();
+  }
+
+  stopWinnerAudio() {
+    // Pause and reset the audio
+    this.winnerAudio.pause();
+    this.winnerAudio.currentTime = 0;
+  }
+
+  endGameLose() {
     this.player.element.remove();
     this.wasp.forEach(function (wasp) {
       wasp.element.remove();
@@ -213,11 +235,38 @@ class Game {
     // Hide game screen
     this.gameScreen.style.display = "none";
     // Show end game screen
-    this.gameEndScreen.style.display = "block";
+    this.gameEndScreenLose.style.display = "block";
     // Stops the music
     this.stopBackgroundAudio();
     // Play the game over audio
     this.playGameOverAudio();
+
+    // Clear the timer interval when the game ends
+    clearInterval(this.timer);
+
+    // Clear wasp and treat interval creation
+    clearInterval(this.waspCreationTimer);
+    clearInterval(this.treatCreationTimer);
+  }
+
+  endGameWin() {
+    this.player.element.remove();
+    this.wasp.forEach(function (wasp) {
+      wasp.element.remove();
+    });
+    this.treat.forEach(function (treat) {
+      treat.element.remove();
+    });
+
+    this.gameIsOver = true;
+    // Hide game screen
+    this.gameScreen.style.display = "none";
+    // Show end game screen
+    this.gameEndScreenWin.style.display = "block";
+    // Stops the music
+    this.stopBackgroundAudio();
+    // Play the game over audio
+    this.playWinnerAudio();
 
     // Clear the timer interval when the game ends
     clearInterval(this.timer);
