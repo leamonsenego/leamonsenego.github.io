@@ -90,7 +90,7 @@ class Game {
       this.timerElement.innerHTML = "Time: " + seconds + " seconds";
 
       if (this.timeLeft <= 0) {
-        this.endGame();
+        this.endGameLose();
       }
     }, 1000); // Update the timer every 1 second (1000 milliseconds)
   }
