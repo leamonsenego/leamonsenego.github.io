@@ -1,6 +1,7 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
+  const backToMainButton = document.getElementById("back-button");
   let game;
 
   startButton.addEventListener("click", function () {
@@ -8,6 +9,10 @@ window.onload = function () {
   });
 
   restartButton.addEventListener("click", function () {
+    restartGame();
+  });
+
+  backToMainButton.addEventListener("click", function () {
     restartGame();
   });
 
