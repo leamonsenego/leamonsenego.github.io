@@ -1,3 +1,4 @@
+/* Default styles for all screens */
 body {
   font-family: "Rubik", sans-serif;
   background-color: #8ab596;
@@ -5,6 +6,39 @@ body {
   text-align: center;
 }
 
+/* Styles for screens with a maximum width of 768px (tablets and below) */
+@media (max-width: 768px) {
+  .header {
+    font-size: 30px;
+  }
+
+  .game-rules {
+    margin: 20px;
+  }
+}
+
+/* Styles for screens with a maximum width of 480px (mobile devices) */
+@media (max-width: 480px) {
+  .header {
+    font-size: 24px;
+  }
+
+  .garden-banner {
+    height: 250px;
+  }
+
+  .dog-face {
+    height: 180px;
+    width: 180px;
+  }
+
+  .game-rules {
+    font-size: 20px;
+    margin: 10px;
+  }
+}
+
+/* Common styles for all screens */
 #game-intro {
   padding: 20px 0px;
 }
@@ -33,11 +67,6 @@ body {
 #game-end-lose,
 #game-end-win {
   display: none;
-}
-
-.header {
-  margin: 50px 20px 50px 20px;
-  font-size: 40px;
 }
 
 .garden-banner {
@@ -82,4 +111,3 @@ body {
   display: flex;
   justify-content: space-around;
 }
-
