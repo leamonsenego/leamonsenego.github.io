@@ -30,7 +30,8 @@ body {
   animation: slide 5s linear infinite;
 }
 
-#game-end {
+#game-end-lose,
+#game-end-win {
   display: none;
 }
 
@@ -42,7 +43,7 @@ body {
 .garden-banner {
   background-image: url("images/garden.jpeg");
   background-color: #cccccc; /* Used if the image is unavailable */
-  height: 500px;
+  height: 350px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -73,7 +74,7 @@ body {
 .game-rules {
   background-color: #f5f5f5;
   font-size: 24px;
-  margin: 20px 500px 20px 500px;
+  margin: 20px 400px 20px 400px;
   padding: 10px;
 }
 
